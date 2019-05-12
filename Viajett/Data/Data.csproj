@@ -57,6 +57,12 @@
     <Compile Include="Interfaces\ITaskRepository.cs" />
     <Compile Include="Interfaces\ITeamRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\EmployeeRepository.cs" />
+    <Compile Include="Repositories\ReportingPeriodRepository.cs" />
+    <Compile Include="Repositories\TaskCategoryRepository.cs" />
+    <Compile Include="Repositories\TaskEntryRepository.cs" />
+    <Compile Include="Repositories\TaskRepository.cs" />
+    <Compile Include="Repositories\TeamRepository.cs" />
     <Compile Include="Viajett.cs" />
   </ItemGroup>
   <ItemGroup>
