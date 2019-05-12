@@ -99,6 +99,18 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Business\Business.csproj">
+      <Project>{28cfa1a0-5a9a-4010-be4a-865e26911342}</Project>
+      <Name>Business</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{5dc325ca-2d9c-42fb-8705-3dd5c7d3e343}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Domain\Domain.csproj">
+      <Project>{ea5a0b7d-b2b7-4cd7-aa0c-5ad3c55ffd61}</Project>
+      <Name>Domain</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Viajett\Viajett.csproj">
       <Project>{C7BA58F3-1BA6-44E6-BA55-1EA3BB444F30}</Project>
       <Name>Viajett</Name>
