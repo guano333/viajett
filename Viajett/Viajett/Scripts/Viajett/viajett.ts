@@ -1,0 +1,6 @@
+﻿class viajett {
+    constructor() { }
+
+    doSomething() {
+    }
+}
