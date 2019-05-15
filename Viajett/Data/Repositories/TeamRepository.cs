@@ -2,7 +2,6 @@
 using Domain;
 using System;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Data.Repositories
 {
@@ -10,59 +9,22 @@ namespace Data.Repositories
     {
         public void Delete(Guid teamId)
         {
-            using (var context = new Viajett())
-            {
-                var team = context.Teams.Where(x => x.TeamId == teamId).FirstOrDefault();
-                if (team != null)
-                {
-                    context.Teams.Remove(team);
-                    context.SaveChanges();
-                }
-            }
+            throw new NotImplementedException();
         }
 
         public IEnumerable<Team> GetAll()
         {
-            using (var context = new Viajett())
-            {
-                return context.Teams.ToList();
-            }
+            throw new NotImplementedException();
         }
 
-        public Team GetById(Guid teamId)
+        public Team GetById(Guid team)
         {
-            using (var context = new Viajett())
-            {
-                var team = context.Teams.Where(x => x.TeamId == teamId).FirstOrDefault();
-                return team;
-            }
+            throw new NotImplementedException();
         }
 
         public Team Upsert(Team source)
         {
-            if (source != null)
-            {
-                using (var context = new Viajett())
-                {
-                    var team = context.Teams.Where(x => x.TeamId == source.TeamId).FirstOrDefault();
-                    if (team != null)
-                    {
-                        //update
-                        team.TeamName = source.TeamName;
-                        team.ManagerId = source.ManagerId;
-                        context.SaveChanges();
-                        return team;
-                    }
-                    else
-                    {
-                        //insert
-                        context.Teams.Add(source);
-                        context.SaveChanges();
-                        return team;
-                    }
-                }
-            }
-            return null;
+            throw new NotImplementedException();
         }
     }
 }
