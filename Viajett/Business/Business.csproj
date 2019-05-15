@@ -56,6 +56,10 @@
     <Compile Include="Services\TeamService.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Data\Data.csproj">
+      <Project>{5DC325CA-2D9C-42FB-8705-3DD5C7D3E343}</Project>
+      <Name>Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Domain\Domain.csproj">
       <Project>{ea5a0b7d-b2b7-4cd7-aa0c-5ad3c55ffd61}</Project>
       <Name>Domain</Name>
