@@ -2,6 +2,7 @@
 using Domain;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Data.Repositories
 {
@@ -9,22 +10,59 @@ namespace Data.Repositories
     {
         public void Delete(Guid teamId)
         {
-            throw new NotImplementedException();
+            using (var context = new Viajett())
+            {
+                var team = context.Teams.Where(x => x.TeamId == teamId).FirstOrDefault();
+                if (team != null)
+                {
+                    context.Teams.Remove(team);
+                    context.SaveChanges();
+                }
+            }
         }
 
         public IEnumerable<Team> GetAll()
         {
-            throw new NotImplementedException();
+            using (var context = new Viajett())
+            {
+                return context.Teams.ToList();
+            }
         }
 
-        public Team GetById(Guid team)
+        public Team GetById(Guid teamId)
         {
-            throw new NotImplementedException();
+            using (var context = new Viajett())
+            {
+                var team = context.Teams.Where(x => x.TeamId == teamId).FirstOrDefault();
+                return team;
+            }
         }
 
         public Team Upsert(Team source)
         {
-            throw new NotImplementedException();
+            if (source != null)
+            {
+                using (var context = new Viajett())
+                {
+                    var team = context.Teams.Where(x => x.TeamId == source.TeamId).FirstOrDefault();
+                    if (team != null)
+                    {
+                        //update
+                        team.TeamName = source.TeamName;
+                        team.ManagerId = source.ManagerId;
+                        context.SaveChanges();
+                        return team;
+                    }
+                    else
+                    {
+                        //insert
+                        context.Teams.Add(source);
+                        context.SaveChanges();
+                        return team;
+                    }
+                }
+            }
+            return null;
         }
     }
 }
