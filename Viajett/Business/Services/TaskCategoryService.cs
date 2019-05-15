@@ -1,19 +1,32 @@
 ﻿using Business.Interfaces;
+using Data.Interfaces;
 using Domain;
-using System;
 
 namespace Business.Services
 {
     public class TaskCategoryService : ITaskCategoryService
     {
+        private readonly ITaskCategoryRepository _taskCategoryRepository;
+        public TaskCategoryService(ITaskCategoryRepository taskCategoryRepository)
+        {
+            _taskCategoryRepository = taskCategoryRepository;
+        }
+
         public void DeleteTaskCategory(TaskCategory source)
         {
-            throw new NotImplementedException();
+            if (source != null)
+            {
+                _taskCategoryRepository.Delete(source.TaskCategoryId);
+            }
         }
 
         public TaskCategory UpsertTaskCategory(TaskCategory source)
         {
-            throw new NotImplementedException();
+            if (source != null)
+            {
+                source = _taskCategoryRepository.Upsert(source);
+            }
+            return source;
         }
     }
 }
