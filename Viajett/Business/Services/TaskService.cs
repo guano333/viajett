@@ -1,40 +1,71 @@
 ﻿using Business.Interfaces;
+using Data.Interfaces;
 using Domain;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace Business.Services
 {
     public class TaskService : ITaskService
     {
+        private readonly ITaskRepository _taskRepository;
+
+        public TaskService(ITaskRepository taskRepository)
+        {
+            _taskRepository = taskRepository;
+        }
         public void DeleteTask(Domain.Task source)
         {
-            throw new NotImplementedException();
+            if (source != null)
+            {
+                _taskRepository.Delete(source.TaskId);
+            }
         }
 
         public IEnumerable<Domain.Task> GetActiveTasksByTaskCategory(TaskCategory category)
         {
-            throw new NotImplementedException();
+            if (category != null)
+            {
+                return _taskRepository.GetAll().Where(x => x.TaskCategoryId == category.TaskCategoryId && x.IsActive == true).ToList();
+            }
+            return new List<Task>();
         }
 
         public IEnumerable<Domain.Task> GetActiveTasksByTeam(Team team)
         {
-            throw new NotImplementedException();
+            if (team != null)
+            {
+                return _taskRepository.GetAll().Where(x => x.TeamId == team.TeamId && x.IsActive == true).ToList();
+            }
+            return new List<Task>();
         }
 
         public IEnumerable<Domain.Task> GetAllTasksByTaskCategory(TaskCategory category)
         {
-            throw new NotImplementedException();
+            if (category != null)
+            {
+                return _taskRepository.GetAll().Where(x => x.TaskCategoryId == category.TaskCategoryId).ToList();
+            }
+            return new List<Task>();
         }
 
         public IEnumerable<Domain.Task> GetAllTasksByTeam(Team team)
         {
-            throw new NotImplementedException();
+            if (team != null)
+            {
+                return _taskRepository.GetAll().Where(x => x.TeamId == team.TeamId).ToList();
+            }
+            return new List<Task>();
         }
 
         public Domain.Task UpsertTask(Domain.Task source)
         {
-            throw new NotImplementedException();
+            if (source != null)
+            {
+                _taskRepository.Upsert(source);
+            }
+            return source;
         }
     }
 }
