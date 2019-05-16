@@ -1,22 +1,42 @@
-﻿using System.Web.Mvc;
+﻿using Business.Interfaces;
+using System.Web.Mvc;
+using System;
+using Domain;
 
 namespace Viajett.Controllers
 {
     public class HomeController : Controller
     {
-        public ActionResult LogTime()
+        private readonly IEmployeeService _employeeService;
+
+        public HomeController(IEmployeeService employeeService)
+        {
+            _employeeService = employeeService;
+        }
+
+        public ActionResult Index()
         {
             return View();
         }
-
-        public ActionResult MyTasks()
+        public ActionResult LogTime()
         {
-            return View();
+            return PartialView();
+        }
+
+        public ActionResult Teams()
+        {
+            //var temp = _employeeService.GetActiveEmployeesByTeam(new Team { TeamId = Guid.Parse("cfd33465-f0c4-4ad1-ae3c-1203db14f8af") });
+            return PartialView();
+        }
+
+        public ActionResult Tasks()
+        {
+            return PartialView();
         }
 
         public ActionResult Reports()
         {
-            return View();
+            return PartialView();
         }
     }
 }

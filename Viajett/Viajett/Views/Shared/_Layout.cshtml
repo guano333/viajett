@@ -13,19 +13,41 @@
         <div class="col-md-10 col-lg-offset-1">
             <span><img src="~/Content/logo.png" /></span>
 
-            <ul class="nav nav-tabs">
-                <li class="nav-item">
-                    @Html.ActionLink("Log Time", "LogTime", "Home", new { @class = "navbar-link active" })
+            <ul class="nav nav-pills">
+                <li class="nav-item active">
+                    <a data-toggle="tab" href="#logtime">Log Time</a>
                 </li>
                 <li class="nav-item">
-                    @Html.ActionLink("My Tasks", "MyTasks", "Home", new { @class = "navbar-link" })
+                    <a data-toggle="tab" href="#teams">Teams</a>
                 </li>
                 <li class="nav-item">
-                    @Html.ActionLink("Reports", "Reports", "Home", new { @class = "navbar-link" })
+                    <a data-toggle="tab" href="#tasks">Tasks</a>
+                </li>
+                <li class="nav-item">
+                    <a data-toggle="tab" href="#reports">Reports</a>
                 </li>
             </ul>
         </div>
     </div>
+
+    <div class="row">
+        <div class="tab-content">
+            <div id="logtime" class="tab-pane fade in active">
+                @Html.Partial("_LogTime")
+            </div>
+            <div id="teams" class="tab-pane fade">
+                @Html.Partial("_Teams")
+            </div>
+            <div id="tasks" class="tab-pane fade">
+                @Html.Partial("_Tasks")
+            </div>
+            <div id="reports" class="tab-pane fade">
+                @Html.Partial("_Reports")
+            </div>
+
+        </div>
+    </div>
+
     <div class="row">
         <div class="col-md-10 col-md-offset-1">
             <div class="container-fluid body-content">
@@ -38,7 +60,6 @@
         </div>
     </div>
 
-    @*@Scripts.Render("~/bundles/jquery")*@
     @Scripts.Render("~/bundles/bootstrap")
     @Scripts.Render("~/bundles/viajett")
     @RenderSection("scripts", required: false)
