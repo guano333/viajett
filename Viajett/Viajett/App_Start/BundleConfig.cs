@@ -23,7 +23,11 @@ namespace Viajett
                       "~/Scripts/bootstrap.js"));
 
             bundles.Add(new ScriptBundle("~/bundles/viajett").Include(
-                      "~/Scripts/viajett/viajett.js"));
+                      "~/Scripts/viajett/viajett.js",
+                      "~/Scripts/viajett/LogEntries.js",
+                      "~/Scripts/viajett/Reports.js",
+                      "~/Scripts/viajett/Tasks.js",
+                      "~/Scripts/viajett/Teams.js"));
 
             bundles.Add(new StyleBundle("~/Content/css").Include(
                       "~/Content/bootstrap.css",

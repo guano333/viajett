@@ -180,6 +180,10 @@
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\Viajett\LogEntries.js" />
+    <Content Include="Scripts\Viajett\Reports.js" />
+    <Content Include="Scripts\Viajett\Tasks.js" />
+    <Content Include="Scripts\Viajett\Teams.js" />
     <Content Include="Scripts\Viajett\viajett.js" />
     <Content Include="Web.config" />
     <Content Include="Web.Debug.config">
@@ -202,6 +206,10 @@
     <Content Include="Views\Home\Teams.cshtml" />
     <Content Include="Views\Home\Tasks.cshtml" />
     <Content Include="Views\Home\Reports.cshtml" />
+    <Content Include="Scripts\Viajett\LogEntries.js.map" />
+    <Content Include="Scripts\Viajett\Reports.js.map" />
+    <Content Include="Scripts\Viajett\Tasks.js.map" />
+    <Content Include="Scripts\Viajett\Teams.js.map" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -222,6 +230,10 @@
     <Content Include="Scripts\jquery-3.3.1.min.map" />
   </ItemGroup>
   <ItemGroup>
+    <TypeScriptCompile Include="Scripts\Viajett\LogEntries.ts" />
+    <TypeScriptCompile Include="Scripts\Viajett\Reports.ts" />
+    <TypeScriptCompile Include="Scripts\Viajett\Tasks.ts" />
+    <TypeScriptCompile Include="Scripts\Viajett\Teams.ts" />
     <TypeScriptCompile Include="Scripts\Viajett\viajett.ts" />
   </ItemGroup>
   <ItemGroup>
