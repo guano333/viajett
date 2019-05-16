@@ -1,7 +1,6 @@
 ﻿using Business.Interfaces;
 using Data.Interfaces;
 using Domain;
-using System;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -54,7 +53,10 @@ namespace Business.Services
         {
             if (team != null)
             {
-                return _taskRepository.GetAll().Where(x => x.TeamId == team.TeamId).ToList();
+                return _taskRepository.GetAll()
+                    //.Where(x => x.TeamId == team.TeamId)
+                    .OrderBy(x => x.Name)
+                    .ToList();
             }
             return new List<Task>();
         }

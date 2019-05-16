@@ -8,10 +8,12 @@ namespace Viajett.Controllers
     public class HomeController : Controller
     {
         private readonly IEmployeeService _employeeService;
+        private readonly ITaskService _taskService;
 
-        public HomeController(IEmployeeService employeeService)
+        public HomeController(IEmployeeService employeeService, ITaskService taskService)
         {
             _employeeService = employeeService;
+            _taskService = taskService;
         }
 
         public ActionResult Index()
@@ -20,18 +22,20 @@ namespace Viajett.Controllers
         }
         public ActionResult LogTime()
         {
-            return PartialView();
+            var temp = _taskService.GetAllTasksByTeam(new Team { TeamId = Guid.Parse("cfd33465-f0c4-4ad1-ae3c-1203db14f8af") });
+            return PartialView(temp);
         }
 
         public ActionResult Teams()
         {
-            //var temp = _employeeService.GetActiveEmployeesByTeam(new Team { TeamId = Guid.Parse("cfd33465-f0c4-4ad1-ae3c-1203db14f8af") });
-            return PartialView();
+            var temp = _employeeService.GetActiveEmployeesByTeam(new Team { TeamId = Guid.Parse("cfd33465-f0c4-4ad1-ae3c-1203db14f8af") });
+            return PartialView(temp);
         }
 
         public ActionResult Tasks()
         {
-            return PartialView();
+            var temp = _taskService.GetAllTasksByTeam(new Team { TeamId = Guid.Parse("cfd33465-f0c4-4ad1-ae3c-1203db14f8af") });
+            return PartialView(temp);
         }
 
         public ActionResult Reports()

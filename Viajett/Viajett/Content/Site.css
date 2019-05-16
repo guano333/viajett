@@ -22,3 +22,10 @@ select,
 textarea {
     max-width: 280px;
 }
+
+.viajetcard{
+    margin-top:20px;
+    padding-bottom:20px;
+    height:50px;
+    border-bottom:solid 1px #332f2f;
+}

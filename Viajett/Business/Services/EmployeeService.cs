@@ -45,7 +45,9 @@ namespace Business.Services
         public IEnumerable<Employee> GetActiveEmployeesByTeam(Team team)
         {
             return _employeeRepository.GetAll()
-                .Where(x => x.TeamId == team.TeamId && x.IsActive == true).ToList();
+                .Where(x => x.TeamId == team.TeamId && x.IsActive == true)
+                .OrderBy(x => x.LastName)
+                .ToList();
         }
 
         public IEnumerable<Employee> GetAllEmployeesByTeam(Team team)

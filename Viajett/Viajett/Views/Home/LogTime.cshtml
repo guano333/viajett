@@ -1,1 +1,19 @@
-﻿this is log time from controller
+﻿@model IEnumerable<Domain.Task>
+
+@{
+    if (Model != null)
+    {
+<table>
+    @foreach (var task in Model)
+    {
+        <tr class="viajetcard">
+            <td>@task.Name</td>
+            <td>@task.Description</td>
+            <td><input type="text" /></td>
+        </tr>
+    }
+</table>
+
+<input type="button" class="btn btn-primary" value="Save"/>
+    }
+}

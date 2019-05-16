@@ -1,1 +1,27 @@
-﻿this is teams from controller
+﻿@model IEnumerable<Domain.Employee>
+
+<div class="container">
+    <input type="button" class="btn btn-primary" value="Create" />
+    @{
+        foreach (var itm in Model)
+        {
+            <div class="row">
+                <span class="col-md-2">
+                    <a href="#">@string.Format("{0}, {1}", itm.LastName, itm.FirstName)</a>
+                </span>
+
+                <span class="col-md-1">
+                    <button type="submit" class="btn btn-link btn-primary">
+                        <span class="glyphicon glyphicon-remove"></span>Delete
+                    </button>
+
+                </span>
+                <span class="col-md-1">
+                    <button type="submit" class="btn btn-link btn-primary">
+                        <span class="glyphicon glyphicon-log-out"></span>Transfer
+                    </button>
+                </span>
+            </div>
+        }
+    }
+</div>

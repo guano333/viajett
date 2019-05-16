@@ -1,1 +1,25 @@
-﻿this is tasks from controller
+﻿@model IEnumerable<Domain.Task>
+
+<div class="container">
+    <input type="button" class="btn btn-primary" value="Create" />
+    @{
+        foreach (var itm in Model)
+        {
+            <div class="row">
+                <span class="col-md-2">
+                    <a href="#">@itm.Name</a>
+                </span>
+
+                <span class="col-md-5">
+                    @itm.Description
+                </span>
+
+                <span class="col-md-2">
+                    <button type="submit" class="btn btn-link btn-primary">
+                        <span class="glyphicon glyphicon-log-out"></span>Delete
+                    </button>
+                </span>
+            </div>
+        }
+    }
+</div>
